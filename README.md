@@ -5,6 +5,8 @@ It enables the [mapping-service](https://github.com/maximilianiKIT/mapping-servi
 #building .jar file
 To bulid the `.jar` file run `./gradlew jar` from command prompt. It will then be built in the directory `build/libs`
 
+#move the jar file to the plugins folder of the local repository mapping-service (https://github.com/kit-data-manager/mapping-service) .
+
 #making changes to the plugin
 edit the file `SEMplugin.java`saved under `src/main/java/edu/kit/datamanager/semplugin
 
