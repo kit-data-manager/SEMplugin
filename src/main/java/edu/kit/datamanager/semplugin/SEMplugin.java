@@ -11,7 +11,7 @@ import java.nio.file.Path;
 public class SEMplugin implements IMappingPlugin{
     private final Logger LOGGER = LoggerFactory.getLogger(SEMplugin.class);
     private static final String REPOSITORY = "https://github.com/kit-data-manager/SEM-Mapping-Tool.git";
-    private static final String BRANCH = "main";
+    private static final String BRANCH = "singleFile";
     private static Path dir;
 
     @Override
