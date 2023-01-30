@@ -21,7 +21,7 @@ public class SEMplugin implements IMappingPlugin{
 
     @Override
     public String description() {
-        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format.";
+        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format. Elias Test 1";
     }
 
     @Override
