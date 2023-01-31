@@ -16,17 +16,17 @@ public class SEMplugin implements IMappingPlugin{
 
     @Override
     public String name() {
-        return "SEM_Zeiss2";
+        return "SEM_Zeiss_to_JSON";
     }
 
     @Override
     public String description() {
-        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format. Elias Test 1";
+        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format and generates a JSON file adhering to the schema.";
     }
 
     @Override
     public String version() {
-        return "0.2.0";
+        return "0.3.0";
     }
 
     @Override
