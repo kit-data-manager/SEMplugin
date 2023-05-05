@@ -11,17 +11,17 @@ import java.nio.file.Path;
 public class SEMplugin implements IMappingPlugin{
     private final Logger LOGGER = LoggerFactory.getLogger(SEMplugin.class);
     private static final String REPOSITORY = "https://github.com/kit-data-manager/SEM-Mapping-Tool.git";
-    private static final String BRANCH = "singleFile";
+    private static final String BRANCH = "2-batch-implementation";
     private static Path dir;
 
     @Override
     public String name() {
-        return "SEM_Zeiss_to_JSON";
+        return "SEM_Zeiss_to_JSON_batch_test";
     }
 
     @Override
     public String description() {
-        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format and generates a JSON file adhering to the schema.";
+        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format and generates a JSON file adhering to the schema. Contains branch fix";
     }
 
     @Override
@@ -57,6 +57,6 @@ public class SEMplugin implements IMappingPlugin{
     @Override
     public MappingPluginState mapFile(Path mappingFile, Path inputFile, Path outputFile) throws MappingPluginException {
         LOGGER.trace("Run SEM-Mapping-Tool on '{}' with mapping '{}' -> '{}'", mappingFile, inputFile, outputFile);
-        return PythonRunnerUtil.runPythonScript(dir + "/main/SEM_commandline_script.py", mappingFile.toString(), inputFile.toString(), outputFile.toString());
+        return PythonRunnerUtil.runPythonScript(dir + "/main/new_script.py", mappingFile.toString(), inputFile.toString(), outputFile.toString());
     }
 }
