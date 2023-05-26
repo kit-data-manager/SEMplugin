@@ -8,7 +8,7 @@ Clone the repository to the your local device. To bulid the `.jar` file run `./g
 ## Use the jar file
 Move the .jar file to the plugins folder of the local repository of [mapping-service](https://github.com/kit-data-manager/mapping-service).
 
-## making changes to the plugin
+## Making changes to the plugin
 Edit the file `SEMplugin.java`saved under `src/main/java/edu/kit/datamanager/semplugin
 
 `build.gradle` has particulars about the .jar file name
