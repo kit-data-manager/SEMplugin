@@ -56,7 +56,12 @@ public class SEMplugin implements IMappingPlugin{
 
     @Override
     public MappingPluginState mapFile(Path mappingFile, Path inputFile, Path outputFile) throws MappingPluginException {
+        long startTime = System.currentTimeMillis();
         LOGGER.trace("Run SEM-Mapping-Tool on '{}' with mapping '{}' -> '{}'", mappingFile, inputFile, outputFile);
-        return PythonRunnerUtil.runPythonScript(dir + "/main/SEM_commandline_script.py", mappingFile.toString(), inputFile.toString(), outputFile.toString());
+        MappingPluginState result = PythonRunnerUtil.runPythonScript(dir + "/main/SEM_commandline_script.py", mappingFile.toString(), inputFile.toString(), outputFile.toString());
+        long endTime = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        LOGGER.info("Execution time of mapFile: {} milliseconds", totalTime);
+        return result;
     }
 }
