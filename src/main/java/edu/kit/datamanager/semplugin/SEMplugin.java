@@ -10,13 +10,13 @@ import java.nio.file.Path;
 
 public class SEMplugin implements IMappingPlugin{
     private final Logger LOGGER = LoggerFactory.getLogger(SEMplugin.class);
-    private static final String REPOSITORY = "https://github.com/kit-data-manager/SEM-Mapping-Tool.git";
-    private static final String BRANCH = "singleFile";
+    private static final String REPOSITORY = "https://github.com/kit-data-manager/pp13-mapper.git";
+    private static final String BRANCH = "main";
     private static Path dir;
 
     @Override
     public String name() {
-        return "SEM_Zeiss_to_JSON";
+        return "SEMAcquisition_to_JSON";
     }
 
     @Override
@@ -26,12 +26,12 @@ public class SEMplugin implements IMappingPlugin{
 
     @Override
     public String version() {
-        return "0.3.0";
+        return "0.1.0";
     }
 
     @Override
     public String uri() {
-        return "https://github.com/kit-data-manager/SEM-Mapping-Tool";
+        return "url for Github Repo containing python script";
     }
 
     @Override
@@ -46,7 +46,7 @@ public class SEMplugin implements IMappingPlugin{
 
     @Override
     public void setup() {
-        LOGGER.info("Checking and installing dependencies for SEM-Mapping-Tool: ");
+        LOGGER.info("Checking and installing dependencies for the tool: ");
         try {
             dir = FileUtil.cloneGitRepository(REPOSITORY, BRANCH);
         } catch (Exception e) {
@@ -58,7 +58,7 @@ public class SEMplugin implements IMappingPlugin{
     public MappingPluginState mapFile(Path mappingFile, Path inputFile, Path outputFile) throws MappingPluginException {
         long startTime = System.currentTimeMillis();
         LOGGER.trace("Run SEM-Mapping-Tool on '{}' with mapping '{}' -> '{}'", mappingFile, inputFile, outputFile);
-        MappingPluginState result = PythonRunnerUtil.runPythonScript(dir + "/main/SEM_commandline_script.py", mappingFile.toString(), inputFile.toString(), outputFile.toString());
+        MappingPluginState result = PythonRunnerUtil.runPythonScript(dir + "metaMapper.py", mappingFile.toString(), inputFile.toString(), outputFile.toString());
         long endTime = System.currentTimeMillis();
         long totalTime = endTime - startTime;
         LOGGER.info("Execution time of mapFile: {} milliseconds", totalTime);
