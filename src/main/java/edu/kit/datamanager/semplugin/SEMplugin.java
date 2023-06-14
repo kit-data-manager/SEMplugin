@@ -21,7 +21,7 @@ public class SEMplugin implements IMappingPlugin{
 
     @Override
     public String description() {
-        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format and generates a JSON file adhering to the schema.";
+        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format and generates a JSON file adhering to the schema. Dependencies added.";
     }
 
     @Override
@@ -49,6 +49,18 @@ public class SEMplugin implements IMappingPlugin{
         LOGGER.info("Checking and installing dependencies for the tool: ");
         try {
             dir = FileUtil.cloneGitRepository(REPOSITORY, BRANCH);
+
+            // Install Python dependencies
+            String[] dependencies = {"Pillow",};
+            for (String pkg : dependencies) {
+                ProcessBuilder pb = new ProcessBuilder("python", "-m", "pip", "install", pkg);
+                pb.inheritIO();
+                Process p = pb.start();
+                int exitCode = p.waitFor();
+                if (exitCode != 0) {
+                    LOGGER.error("Failed to install Python package: " + pkg);
+                }
+            }
         } catch (Exception e) {
            e.printStackTrace();
         }
