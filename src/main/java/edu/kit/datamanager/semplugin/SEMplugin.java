@@ -58,7 +58,7 @@ public class SEMplugin implements IMappingPlugin{
     public MappingPluginState mapFile(Path mappingFile, Path inputFile, Path outputFile) throws MappingPluginException {
         long startTime = System.currentTimeMillis();
         LOGGER.trace("Run SEM-Mapping-Tool on '{}' with mapping '{}' -> '{}'", mappingFile, inputFile, outputFile);
-        MappingPluginState result = PythonRunnerUtil.runPythonScript(dir + "metaMapper.py", mappingFile.toString(), inputFile.toString(), outputFile.toString());
+        MappingPluginState result = PythonRunnerUtil.runPythonScript(dir + "/metaMapper.py", mappingFile.toString(), inputFile.toString(), outputFile.toString());
         long endTime = System.currentTimeMillis();
         long totalTime = endTime - startTime;
         LOGGER.info("Execution time of mapFile: {} milliseconds", totalTime);
