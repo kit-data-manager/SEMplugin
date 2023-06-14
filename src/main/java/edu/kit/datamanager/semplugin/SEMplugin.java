@@ -53,7 +53,7 @@ public class SEMplugin implements IMappingPlugin{
             // Install Python dependencies
             String[] dependencies = {"Pillow",};
             for (String pkg : dependencies) {
-                ProcessBuilder pb = new ProcessBuilder("python", "-m", "pip", "install", pkg);
+                ProcessBuilder pb = new ProcessBuilder("python3", "-m", "pip", "install", pkg);
                 pb.inheritIO();
                 Process p = pb.start();
                 int exitCode = p.waitFor();
