@@ -16,22 +16,22 @@ public class SEMplugin implements IMappingPlugin{
 
     @Override
     public String name() {
-        return "SEMAcquisition_to_JSON";
+        return "SEMTomoAcqToJSON";
     }
 
     @Override
     public String description() {
-        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format and generates a JSON file adhering to the schema. Dependencies added.";
+        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format and generates a JSON file adhering to the schema. Last edited: 26.06.2023";
     }
 
     @Override
     public String version() {
-        return "0.2.0";
+        return "1.0.0";
     }
 
     @Override
     public String uri() {
-        return "url for Github Repo containing python script";
+        return "https://github.com/kit-data-manager/pp13-mapper/tree/main";
     }
 
     @Override
