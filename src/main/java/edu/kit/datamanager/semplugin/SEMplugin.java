@@ -16,14 +16,12 @@ public class SEMplugin implements IMappingPlugin{
 
     @Override
     public String name() {
-        // return "SEM_Zeiss_to_JSON_batch_test";
-        return "Python_Envinroment_Test";
+        return "SEM_Zeiss_to_JSON_batch_test";
     }
 
     @Override
     public String description() {
-        // return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format and generates a JSON file adhering to the schema. Contains branch fix and added a default file zip location.";
-        return "environment test!!";
+        return "This python based tool extracts metadata from machine generated scanning microscopy images in the TIFF format and generates a JSON file adhering to the schema. Contains branch fix and added a default file zip location.";
     }
 
     @Override
@@ -59,8 +57,8 @@ public class SEMplugin implements IMappingPlugin{
     @Override
     public MappingPluginState mapFile(Path mappingFile, Path inputFile, Path outputFile) throws MappingPluginException {
         LOGGER.trace("Run SEM-Mapping-Tool on '{}' with mapping '{}' -> '{}'", mappingFile, inputFile, outputFile);
-        // return PythonRunnerUtil.runPythonScript(dir + "/main/new_script.py", mappingFile.toString(), inputFile.toString(), outputFile.toString());
-        return PythonRunnerUtil.runPythonScript(dir + "/main/envTest.py");
+        return PythonRunnerUtil.runPythonScript(dir + "/main/new_script.py", mappingFile.toString(), inputFile.toString(), outputFile.toString());
+        // return PythonRunnerUtil.runPythonScript(dir + "/main/envTest.py");
 
     }
 }
